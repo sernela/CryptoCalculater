@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="111dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/gray"
+        android:ems="10"
+        android:hint="BTC"
+        android:inputType="text"
+        android:textColor="@color/blue"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="104dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="108dp"
+        android:background="@color/gray"
+        android:ems="10"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:textColor="@color/blue"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/value"
+        app:layout_constraintEnd_toStartOf="@+id/value"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/value" />
+
+    <EditText
+        android:id="@+id/value"
+        android:layout_width="85dp"
+        android:layout_height="37dp"
+        android:background="@color/gray"
+        android:ems="10"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvBad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvBad"
+        android:layout_width="312dp"
+        android:layout_height="429dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/shape2"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvBadge"
+        android:layout_width="111dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/shape1"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/tv"
+        app:layout_constraintEnd_toStartOf="@+id/sum"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="@+id/tvBad"
+        app:layout_constraintTop_toTopOf="@+id/tvBad" />
+
+    <Button
+        android:id="@+id/sum"
+        android:layout_width="111dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/shape4"
+        android:onClick="doSum"
+        android:text="Calculate"
+        android:textColor="@color/blue"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintTop_toTopOf="@+id/tvBad" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="22dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="%"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvBadge"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toEndOf="@+id/percent1"
+        app:layout_constraintTop_toTopOf="@+id/tvBadge" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="8dp"
+        android:text="Regular"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBadge"
+        app:layout_constraintEnd_toEndOf="@+id/tvBadge"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="@+id/tvBadge"
+        app:layout_constraintTop_toBottomOf="@+id/percent1" />
+
+    <!---long bar-->
+
+    <EditText
+        android:id="@+id/percent1"
+        android:layout_width="26dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/pick"
+        android:ems="10"
+        android:hint="5.00"
+        android:inputType="numberDecimal"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="@+id/tvBadge"
+        app:layout_constraintTop_toTopOf="@+id/tvBadge" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="269dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/shape3"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/tvB"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintStart_toStartOf="@+id/tvBad" />
+    <!---m-->
+
+
+    <TextView
+
+        android:id="@+id/textView3"
+        android:layout_width="240dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/shape3"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/tvBad"
+        app:layout_constraintTop_toTopOf="@+id/tvBad" />
+
+    <TextView
+        android:id="@+id/amountName"
+        android:layout_width="38dp"
+        android:layout_height="18dp"
+        android:text="BTC"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="69dp"
+        android:layout_height="16dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/amountName"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+
+        android:id="@+id/textView4"
+        android:layout_width="240dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape3"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintStart_toStartOf="@+id/tvBad"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/priceName"
+        android:layout_width="38dp"
+        android:layout_height="18dp"
+        android:text="Price"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/result2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/result2"
+        android:layout_width="64dp"
+        android:layout_height="17dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+
+        android:layout_width="38dp"
+        android:layout_height="18dp"
+        android:text="$"
+        android:textColor="@color/blue"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+
+        android:id="@+id/textView6"
+        android:layout_width="240dp"
+        android:layout_height="37dp"
+        android:background="@drawable/shape3"
+        app:layout_constraintBottom_toTopOf="@+id/tv"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintStart_toStartOf="@+id/tvBad"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <!---Weekly Reward-->
+
+    <TextView
+        android:id="@+id/totalPriceName"
+        android:layout_width="77dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="8dp"
+        android:text="Total price"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toTopOf="@+id/tv"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/result3"
+        android:layout_width="64dp"
+        android:layout_height="17dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/totalPriceName"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:layout_width="38dp"
+        android:layout_height="18dp"
+        android:text="$"
+        android:textColor="@color/blue"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/totalPriceName"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvB"
+        android:layout_width="236dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shape3"
+        app:layout_constraintBottom_toTopOf="@+id/tvBa"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/tvBad" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Rewards per week"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/tvB"
+        app:layout_constraintEnd_toEndOf="@+id/tvB"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/tvB"
+        app:layout_constraintTop_toBottomOf="@+id/weeklyAssetSymble" />
+
+    <TextView
+        android:id="@+id/textVi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="20dp"
+        android:text="$"
+        android:textColor="@color/blue"
+        app:layout_constraintStart_toStartOf="@+id/tvB"
+        app:layout_constraintTop_toBottomOf="@+id/tv" />
+
+    <TextView
+        android:id="@+id/result5"
+        android:layout_width="61dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/tvB"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toEndOf="@+id/textVi"
+        app:layout_constraintTop_toTopOf="@+id/tvB" />
+
+    <!---Year Reward-->
+
+    <TextView
+        android:id="@+id/weeklyAsset"
+        android:layout_width="48dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="88dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/weeklyAssetSymble"
+        app:layout_constraintStart_toStartOf="@+id/tvB"
+        app:layout_constraintTop_toBottomOf="@+id/result5"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <TextView
+        android:id="@+id/weeklyAssetSymble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="84dp"
+        android:text="BTC"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvB"
+        app:layout_constraintTop_toBottomOf="@+id/result5" />
+
+    <TextView
+        android:id="@+id/tvBa"
+        android:layout_width="236dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/shape3"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBad"
+        app:layout_constraintEnd_toEndOf="@+id/tvBad"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/tvBad" />
+
+    <TextView
+        android:id="@+id/textVie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Rewards per year"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBa"
+        app:layout_constraintEnd_toEndOf="@+id/tvBa"
+        app:layout_constraintStart_toStartOf="@+id/tvBa" />
+
+    <TextView
+        android:id="@+id/textV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="8dp"
+        android:text="$"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toStartOf="@+id/result4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvBa"
+        app:layout_constraintTop_toTopOf="@+id/tvBa" />
+
+    <TextView
+        android:id="@+id/result4"
+        android:layout_width="54dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="76dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/tvBa"
+        app:layout_constraintTop_toTopOf="@+id/tvBa" />
+
+    <TextView
+        android:id="@+id/yearlyAsset"
+        android:layout_width="41dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="76dp"
+        android:text="0.00"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textVie"
+        app:layout_constraintStart_toStartOf="@+id/tvBa"
+        app:layout_constraintTop_toBottomOf="@+id/result4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/yearlyAssetSymble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BTC"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textVie"
+        app:layout_constraintEnd_toEndOf="@+id/tvBa"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toEndOf="@+id/yearlyAsset"
+        app:layout_constraintTop_toBottomOf="@+id/result4"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
